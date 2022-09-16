@@ -17,9 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware'=>'api'],function($routes){
     Route::post('register',[UserController::class,'register']);
+
     Route::post('login',[UserController::class,'login']);
+
     Route::post('profile',[UserController::class,'profile']);
+
     Route::post('refresh',[UserController::class,'refresh']);
+    
     Route::post('logout',[UserController::class,'logout']);
 });
 

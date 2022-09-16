@@ -31,6 +31,7 @@ class UserController extends Controller
 
         return response()->json(['msg'=>'User Created Successsfully','user'=>$user]);
     }
+    
 
     public function login(Request $request){        
         $validate = Validator::make($request->all(),[
@@ -51,6 +52,7 @@ class UserController extends Controller
         return $this->responseWithToken($token);
     }
 
+
     protected function responseWithToken($token){
         return response()->json([
             'access_token'=>$token,
@@ -60,15 +62,18 @@ class UserController extends Controller
         ]);
     }
 
+
     public function profile()
     {
         return response()->json(auth()->user());
     }
 
+
     public function refresh()
     {
         return $this->responseWithToken(auth()->refresh());
     }
+
 
     public function logout()
     {
